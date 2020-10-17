@@ -1,0 +1,22 @@
+<Timer>:
+    cols:4
+    padding: 5
+    spacing: 5, 5
+    size_hint_y: None
+    height: '40dp'
+    MyLabel:
+        size_hint: 0.1, 1
+    MyLabel:
+        font_size: '18sp'
+        text: 'Продолжительность сеанса,мин:'
+        size_hint: 0.9, 1
+
+    MyTextInput:
+        id: duration
+        size_hint: 0.10, 1
+        font_size: '18sp'
+        text: '0'
+        on_text:
+            app.main.action_button_callback(Const.DURATION, eval(duration.text)) if len(duration.text) > 0 else 1
+    MyLabel:
+        size_hint: 0.1, 1

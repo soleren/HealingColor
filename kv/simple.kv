@@ -1,0 +1,184 @@
+<SimpleMode>:
+    id: simple_mode
+    cols: 1
+    padding: 5
+    spacing: 10, 10
+    size_hint_y: None
+    height: '140dp'
+    MyGrid:
+        MyLabel:
+            id:lang
+            size_hint: 0.9, 0.6
+            font_size: '18sp'
+            text: "Простой режим"
+        ModeToggle:
+            id: simple_checkbox
+            size_hint: 0.1, 0.6
+            canvas.before:
+                Color:
+                    rgb: 0,0,0
+                Line:
+                    width: 1
+                    ellipse: (self.center_x-9, self.center_y-8, 16, 16)
+            on_release:
+                app.main.action_button_callback(Const.SETUP, [Const.DEL_COLORS])
+                app.main.action_button_callback(Const.CHANGE_MODE, Const.SIMPLE_MODE)
+
+
+    GridLayout:
+        cols: 12
+        padding: 5
+        spacing: 10, 10
+        size_hint_y: None
+        height: '80dp'
+        ColoredLabel:
+            id:simple_scarlett
+            size_hint: 0.1, 1
+            color: 0.839, 0, 0.576, 1
+
+        ColoredLabel:
+            id:simple_red
+            size_hint: 0.1, 1
+            color: 1, 0, 0, 1
+
+        ColoredLabel:
+            id:simple_orange
+            size_hint: 0.1, 1
+            color: 1, 0.501, 0, 1
+
+        ColoredLabel:
+            id:simple_yellow
+            size_hint: 0.1, 1
+            color: 1, 1, 0, 1
+
+        ColoredLabel:
+            id:simple_lemon
+            size_hint: 0.1, 1
+            color: 0.6, 1, 0.2, 1
+
+        ColoredLabel:
+            id:simple_green
+            size_hint: 0.1, 1
+            color: 0.2, 0.8, 0.2, 1
+
+        ColoredLabel:
+            id:simple_tirq
+            size_hint: 0.1, 1
+            color: 0, 0.8, 1, 1
+
+        ColoredLabel:
+            id:simple_blue
+            size_hint: 0.1, 1
+            color: 0, 0.4, 1, 1
+
+        ColoredLabel:
+            id:simple_indigo
+            size_hint: 0.1, 1
+            color: 0, 0, 0.8, 1
+
+        ColoredLabel:
+            id:simple_violett
+            size_hint: 0.1, 1
+            color: 0, 0, 0.6, 1
+
+        ColoredLabel:
+            id:simple_purple
+            size_hint: 0.1, 1
+            color: 0.6, 0, 1, 1
+
+        ColoredLabel:
+            id:simple_magenta
+            size_hint: 0.1, 1
+            color: 0.8, 0, 0.8, 1
+
+
+        SimpleCheckbox:
+            id: simple_scarlett_button
+            color: simple_scarlett.color
+            disabled: True if simple_checkbox.state == 'normal' else False
+            state: 'normal' if simple_checkbox.state == 'normal' else 'normal'
+
+        SimpleCheckbox:
+            id: simple_red_button
+            color: simple_red.color
+            disabled: True if simple_checkbox.state == 'normal' else False
+            state: 'normal' if simple_checkbox.state == 'normal' else 'normal'
+
+        SimpleCheckbox:
+            id: simple_orange_button
+            color: simple_orange.color
+            disabled: True if simple_checkbox.state == 'normal' else False
+            state: 'normal' if simple_checkbox.state == 'normal' else 'normal'
+
+        SimpleCheckbox:
+            id: simple_yellow_button
+            color: simple_yellow.color
+            disabled: True if simple_checkbox.state == 'normal' else False
+            state: 'normal' if simple_checkbox.state == 'normal' else 'normal'
+
+        SimpleCheckbox:
+            id: simple_lemon_button
+            color: simple_lemon.color
+            disabled: True if simple_checkbox.state == 'normal' else False
+            state: 'normal' if simple_checkbox.state == 'normal' else 'normal'
+
+        SimpleCheckbox:
+            id: simple_green_button
+            color: simple_green.color
+            disabled: True if simple_checkbox.state == 'normal' else False
+            state: 'normal' if simple_checkbox.state == 'normal' else 'normal'
+
+        SimpleCheckbox:
+            id: simple_tirq_button
+            color: simple_tirq.color
+            disabled: True if simple_checkbox.state == 'normal' else False
+            state: 'normal' if simple_checkbox.state == 'normal' else 'normal'
+
+        SimpleCheckbox:
+            id: simple_blue_button
+            color: simple_blue.color
+            disabled: True if simple_checkbox.state == 'normal' else False
+            state: 'normal' if simple_checkbox.state == 'normal' else 'normal'
+
+        SimpleCheckbox:
+            id: simple_indigo_button
+            color: simple_indigo.color
+            disabled: True if simple_checkbox.state == 'normal' else False
+            state: 'normal' if simple_checkbox.state == 'normal' else 'normal'
+
+        SimpleCheckbox:
+            id: simple_violett_button
+            color: simple_violett.color
+            disabled: True if simple_checkbox.state == 'normal' else False
+            state: 'normal' if simple_checkbox.state == 'normal' else 'normal'
+
+        SimpleCheckbox:
+            id: simple_purple_button
+            color: simple_purple.color
+            disabled: True if simple_checkbox.state == 'normal' else False
+            state: 'normal' if simple_checkbox.state == 'normal' else 'normal'
+
+        SimpleCheckbox:
+            id: simple_magenta_button
+            color: simple_magenta.color
+            disabled: True if simple_checkbox.state == 'normal' else False
+            state: 'normal' if simple_checkbox.state == 'normal' else 'normal'
+
+
+
+
+<ColoredLabel@Label>:
+#    disabled: True if simple_checkbox.state == 'normal' else False
+    canvas.before:
+        Color:
+            rgba: root.color
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
+<SimpleCheckbox>:
+    group: 'simple_mode'
+    size_hint: 0.1, 1
+    on_release:
+        app.main.action_button_callback(Const.SETUP, [Const.RGB, root.color])

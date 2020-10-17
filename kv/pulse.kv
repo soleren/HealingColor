@@ -1,0 +1,242 @@
+<PulseMode>:
+    cols: 1
+    padding: 5
+    spacing: 10, 10
+    size_hint_y: None
+    height: '200dp'
+    MyGrid:
+        MyLabel:
+            id:lang
+            size_hint: 0.9, 0.6
+            font_size: '18sp'
+            text: "Режим пульсации цвета"
+        ModeToggle:
+            id: pulse_checkbox
+            size_hint: 0.1, 0.6
+            canvas.before:
+                Color:
+                    rgb: 0,0,0
+                Line:
+                    width: 1
+                    ellipse: (self.center_x-9, self.center_y-8, 16, 16)
+            on_release:
+                app.main.action_button_callback(Const.SETUP, [Const.DEL_COLORS])
+                app.main.action_button_callback(Const.CHANGE_MODE, Const.PULSE_MODE)
+
+    GridLayout:
+        cols: 12
+        padding: 5
+        spacing: 10, 10
+        size_hint_y: None
+        height: '80dp'
+
+        ColoredLabel:
+            id:pulse_scarlett
+            size_hint: 0.1, 1
+            color: 0.839, 0, 0.576, 1
+
+        ColoredLabel:
+            id:pulse_red
+            size_hint: 0.1, 1
+            color: 1, 0, 0, 1
+
+        ColoredLabel:
+            id:pulse_orange
+            size_hint: 0.1, 1
+            color: 1, 0.501, 0, 1
+
+        ColoredLabel:
+            id:pulse_yellow
+            size_hint: 0.1, 1
+            color: 1, 1, 0, 1
+
+        ColoredLabel:
+            id:pulse_lemon
+            size_hint: 0.1, 1
+            color: 0.6, 1, 0.2, 1
+
+        ColoredLabel:
+            id:pulse_green
+            size_hint: 0.1, 1
+            color: 0.2, 0.8, 0.2, 1
+
+        ColoredLabel:
+            id:pulse_tirq
+            size_hint: 0.1, 1
+            color: 0, 0.8, 1, 1
+
+        ColoredLabel:
+            id:pulse_blue
+            size_hint: 0.1, 1
+            color: 0, 0.4, 1, 1
+
+        ColoredLabel:
+            id:pulse_indigo
+            size_hint: 0.1, 1
+            color: 0, 0, 0.8, 1
+
+        ColoredLabel:
+            id:pulse_violett
+            size_hint: 0.1, 1
+            color: 0, 0, 0.6, 1
+
+        ColoredLabel:
+            id:pulse_purple
+            size_hint: 0.1, 1
+            color: 0.6, 0, 1, 1
+
+        ColoredLabel:
+            id:pulse_magenta
+            size_hint: 0.1, 1
+            color: 0.8, 0, 0.8, 1
+
+
+        PulseCheckbox:
+            id: pulse_scarlett_button
+            color: pulse_scarlett.color
+            disabled: True if pulse_checkbox.state == 'normal' else False
+            state: 'normal' if pulse_checkbox.state == 'normal' else 'normal'
+
+        PulseCheckbox:
+            id: pulse_red_button
+            color: pulse_red.color
+            disabled: True if pulse_checkbox.state == 'normal' else False
+            state: 'normal' if pulse_checkbox.state == 'normal' else 'normal'
+
+        PulseCheckbox:
+            id: pulse_orange_button
+            color: pulse_orange.color
+            disabled: True if pulse_checkbox.state == 'normal' else False
+            state: 'normal' if pulse_checkbox.state == 'normal' else 'normal'
+
+        PulseCheckbox:
+            id: pulse_yellow_button
+            color: pulse_yellow.color
+            disabled: True if pulse_checkbox.state == 'normal' else False
+            state: 'normal' if pulse_checkbox.state == 'normal' else 'normal'
+
+        PulseCheckbox:
+            id: pulse_lemon_button
+            color: pulse_lemon.color
+            disabled: True if pulse_checkbox.state == 'normal' else False
+            state: 'normal' if pulse_checkbox.state == 'normal' else 'normal'
+
+        PulseCheckbox:
+            id: pulse_green_button
+            color: pulse_green.color
+            disabled: True if pulse_checkbox.state == 'normal' else False
+            state: 'normal' if pulse_checkbox.state == 'normal' else 'normal'
+
+        PulseCheckbox:
+            id: pulse_tirq_button
+            color: pulse_tirq.color
+            disabled: True if pulse_checkbox.state == 'normal' else False
+            state: 'normal' if pulse_checkbox.state == 'normal' else 'normal'
+
+
+        PulseCheckbox:
+            id: pulse_blue_button
+            color: pulse_blue.color
+            disabled: True if pulse_checkbox.state == 'normal' else False
+            state: 'normal' if pulse_checkbox.state == 'normal' else 'normal'
+
+        PulseCheckbox:
+            id: pulse_indigo_button
+            color: pulse_indigo.color
+            disabled: True if pulse_checkbox.state == 'normal' else False
+            state: 'normal' if pulse_checkbox.state == 'normal' else 'normal'
+
+        PulseCheckbox:
+            id: pulse_violett_button
+            color: pulse_violett.color
+            disabled: True if pulse_checkbox.state == 'normal' else False
+            state: 'normal' if pulse_checkbox.state == 'normal' else 'normal'
+
+        PulseCheckbox:
+            id: pulse_purple_button
+            color: pulse_purple.color
+            disabled: True if pulse_checkbox.state == 'normal' else False
+            state: 'normal' if pulse_checkbox.state == 'normal' else 'normal'
+
+        PulseCheckbox:
+            id: pulse_magenta_button
+            color: pulse_magenta.color
+            disabled: True if pulse_checkbox.state == 'normal' else False
+            state: 'normal' if pulse_checkbox.state == 'normal' else 'normal'
+
+
+
+
+
+
+    GridLayout:
+        cols:7
+        padding: 5
+        spacing: 10, 10
+        size_hint_y: None
+        height: '40dp'
+
+        MyLabel:
+            font_size: '18sp'
+            text: 'Интервал,сек:'
+            size_hint: 0.15, 1
+
+        MyTextInput:
+            disabled: True if pulse_checkbox.state == 'normal' else False
+            text: '' if pulse_checkbox.state == 'normal' else ''
+            id: interval_input
+            size_hint: 0.05, 1
+            on_text:
+                app.main.action_button_callback(Const.SETUP, [Const.INTERVAL, eval(interval_input.text)]) if len(interval_input.text) > 0 else ''
+        MyLabel:
+            font_size: '18sp'
+            text: 'Пульсация через цвет:'
+            size_hint: 0.2, 1
+
+        ColoredLabel:
+            id:color_mode_black
+            size_hint: 0.05, 1
+            color: 0, 0, 0, 1
+
+        CheckBox:
+            disabled: True if pulse_checkbox.state == 'normal' else False
+            state: 'normal' if pulse_checkbox.state == 'normal' else 'normal'
+            group: 'color_mode'
+            size_hint: 0.01, 1
+            on_release:
+                app.main.action_button_callback(Const.SETUP, [Const.PULSE_COLOR, color_mode_black.color])
+
+        ColoredLabel:
+            id:color_mode_white
+            size_hint: 0.05, 1
+            color: 1, 1, 1, 1
+            canvas.before:
+                Color:
+                    rgba: 0,0,0,1
+                Line:
+                    width: 1
+                    rectangle: self.x, self.y, self.width, self.height
+
+        CheckBox:
+            disabled: True if pulse_checkbox.state == 'normal' else False
+            state: 'normal' if pulse_checkbox.state == 'normal' else 'normal'
+            group: 'color_mode'
+            size_hint: 0.01, 1
+            on_release:
+                app.main.action_button_callback(Const.SETUP, [Const.PULSE_COLOR, color_mode_white.color])
+
+
+<ColoredLabel@Label>:
+    canvas.before:
+        Color:
+            rgba: root.color
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
+<PulseCheckbox@CheckBox>:
+    group: 'pulse_mode'
+    size_hint: 0.1, 1
+    on_release:
+        app.main.action_button_callback(Const.SETUP, [Const.RGB, root.color])

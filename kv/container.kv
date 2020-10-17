@@ -1,0 +1,125 @@
+#:import NoTransition  kivy.uix.screenmanager.NoTransition
+#:import Factory kivy.factory.Factory
+#:import Window kivy.core.window.Window
+#:import Const const.Const
+
+
+<Container>:
+    BoxLayout:
+        orientation: 'vertical'
+        id: main
+        canvas:
+            Color:
+                rgba: (1,1,1,1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+
+        Screen:
+            id: settings_screen
+            BoxLayout:
+                orientation: 'vertical'
+                ScrollView:
+                    size_hint_y: .98
+                    GridLayout:
+                        cols: 1
+                        size_hint: 1, None
+                        do_scroll_y: True
+                        height: self.minimum_height
+                        pos_hint: {'center_y':.5}
+
+
+                        SimpleMode:
+                            id: simple_mode
+                        PulseMode:
+                            id: pulse_mode
+                        SequenceMode:
+                            id: sequence_mode
+                        Sequence1Mode:
+                            id: sequence_mode1
+                        Timer:
+                        MyGrid:
+                            MyLabel:
+                                text: 'Группа в ВК:'
+                            MyButton:
+                                text: 'Перейти'
+                                on_release:
+                                    app.main.vk()
+                        MyGrid:
+                            MyLabel:
+                                text: 'Группа в Телеграм:'
+                            MyButton:
+                                text: 'Перейти'
+                                on_release:
+                                    app.main.telegramm()
+                        MyGrid:
+                            MyLabel:
+                                text: 'Разработка: '
+                            MyLabel:
+                                text: 'soleren@mail.ru'
+
+
+
+                FloatLayout:
+                    size_hint: 1, .1
+                    padding: 10
+                    MyButton:
+                        size_hint: .2, .7
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        text: "Запустить"
+                        on_release:
+                            app.main.action_button_callback(Const.RUN)
+
+
+
+<ColoredFullScreen>:
+    id: colored_fullscreen
+    size_hint: 1, 1
+    canvas.before:
+        Color:
+            rgba: root.rgb
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
+
+<MyLabel@Label>
+    font_size: '22sp'
+    markup: True
+    color: 0, 0, 0, 1
+    background_normal: 1, 0, 1 ,1
+
+
+<MyButton@Button>:
+    font_size:  .2 * self.width if self.width * .2 < root.height else self.height
+    background_color: 0.4,0.6,1,
+    background_normal: ''
+    font_size: '22sp'
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Line:
+            width: 1
+            rectangle: root.x, root.y, root.width, root.height
+
+
+<MyTextInput@TextInput>:
+    padding: [0, (self.height-self.line_height)/2]
+    font_size: (.5 - root.height / root.width) * 100
+    multiline: False
+    halign: 'center'
+    font_size: '22sp'
+
+
+<MyGrid@GridLayout>:
+    cols: 2
+    padding: 5
+    spacing: 10, 10
+    size_hint_y: None
+    height: '40dp'
+
+
+<ModeToggle@CheckBox>:
+    group: 'mode'

@@ -1,0 +1,16 @@
+class Const:
+    CHANGE_MODE = 'change_mode'
+    RUN = 'run'
+    SETUP = 'setup'
+    RGB = 'rgb'
+    INTERVAL = 'interval'
+    PULSE_COLOR = 'pulse_color'
+    DURATION = 'duration'
+    ADD_COLOR = 'add_color'
+    ADD_COLOR1 = 'add_color1'
+    DEL_COLORS = 'del_colors'
+
+    SIMPLE_MODE = 'simple_mode'
+    PULSE_MODE = 'pulse_mode'
+    SEQUENCE_MODE = 'sequence_mode'
+    SEQUENCE_MODE1 = 'sequence_mode1'
