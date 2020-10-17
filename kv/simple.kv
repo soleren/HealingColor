@@ -8,7 +8,7 @@
     MyGrid:
         MyLabel:
             id:lang
-            size_hint: 0.9, 0.6
+            size_hint: 0.3, 0.6
             font_size: '18sp'
             text: "Простой режим"
         ModeToggle:
@@ -23,14 +23,16 @@
             on_release:
                 app.main.action_button_callback(Const.SETUP, [Const.DEL_COLORS])
                 app.main.action_button_callback(Const.CHANGE_MODE, Const.SIMPLE_MODE)
-
+        MyLabel:
 
     GridLayout:
+
         cols: 12
         padding: 5
         spacing: 10, 10
         size_hint_y: None
         height: '80dp'
+
         ColoredLabel:
             id:simple_scarlett
             size_hint: 0.1, 1
